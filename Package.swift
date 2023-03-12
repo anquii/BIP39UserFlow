@@ -17,7 +17,7 @@ let package = Package(
     dependencies: [
         .package(
             url: "https://github.com/anquii/BIP39.git",
-            .upToNextMajor(from: "2.0.0")
+            exact: "2.0.1"
         )
     ],
     targets: [
