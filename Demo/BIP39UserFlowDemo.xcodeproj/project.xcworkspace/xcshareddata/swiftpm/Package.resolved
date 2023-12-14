@@ -5,8 +5,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/anquii/BIP39.git",
       "state" : {
-        "revision" : "abbe0ac968e293b143a17eb431185eb613b06de7",
-        "version" : "2.0.0"
+        "revision" : "49708d144984128c6bf4cce58ecb85b8de6fbca5",
+        "version" : "2.1.0"
       }
     },
     {

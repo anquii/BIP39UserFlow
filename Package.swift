@@ -9,25 +9,13 @@ let package = Package(
         .iOS("16.1")
     ],
     products: [
-        .library(
-            name: "BIP39UserFlow",
-            targets: ["BIP39UserFlow"]
-        )
+        .library(name: "BIP39UserFlow", targets: ["BIP39UserFlow"])
     ],
     dependencies: [
-        .package(
-            url: "https://github.com/anquii/BIP39.git",
-            exact: "2.0.1"
-        )
+        .package(url: "https://github.com/anquii/BIP39.git", exact: "2.1.0")
     ],
     targets: [
-        .target(
-            name: "BIP39UserFlow",
-            dependencies: ["BIP39"]
-        ),
-        .testTarget(
-            name: "BIP39UserFlowTests",
-            dependencies: ["BIP39UserFlow"]
-        )
+        .target(name: "BIP39UserFlow", dependencies: ["BIP39"]),
+        .testTarget(name: "BIP39UserFlowTests", dependencies: ["BIP39UserFlow"])
     ]
 )
