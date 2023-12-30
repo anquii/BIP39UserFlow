@@ -12,7 +12,7 @@ let package = Package(
         .library(name: "BIP39UserFlow", targets: ["BIP39UserFlow"])
     ],
     dependencies: [
-        .package(url: "https://github.com/anquii/BIP39.git", exact: "2.1.0")
+        .package(url: "https://github.com/anquii/BIP39.git", exact: "3.0.0")
     ],
     targets: [
         .target(name: "BIP39UserFlow", dependencies: ["BIP39"]),

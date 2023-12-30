@@ -1,7 +1,7 @@
 import BIP39
 
 protocol MnemonicCreating {
-    func createMnemonic() throws
+    func createMnemonic()
 }
 
 struct CreateMnemonicInteractor {
@@ -22,8 +22,8 @@ struct CreateMnemonicInteractor {
 
 // MARK: - MnemonicCreating
 extension CreateMnemonicInteractor: MnemonicCreating {
-    func createMnemonic() throws {
-        let entropy = try entropyGenerator.entropy(security: repository.mnemonicEntropySecurity)
+    func createMnemonic() {
+        let entropy = entropyGenerator.entropy(security: repository.mnemonicEntropySecurity)
         let mnemonic = constructor.mnemonic(entropy: entropy, wordList: repository.mnemonicConfiguration.wordListProvider.wordList)
         repository.setMnemonic(mnemonic)
     }

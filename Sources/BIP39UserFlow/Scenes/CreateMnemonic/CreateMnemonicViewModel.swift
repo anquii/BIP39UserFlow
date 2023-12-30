@@ -27,7 +27,7 @@ final class CreateMnemonicViewModel: ObservableObject {
         self.repository = repository
         self.interactor = interactor
         self.mnemonicWordsInteractor = mnemonicWordsInteractor
-        try! interactor.createMnemonic()
+        interactor.createMnemonic()
     }
 }
 

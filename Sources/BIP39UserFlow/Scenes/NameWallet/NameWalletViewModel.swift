@@ -12,7 +12,7 @@ struct NameWalletViewModel {
 
 extension NameWalletViewModel {
     func onPrimaryCTATapped(text: String) {
-        let wallet = try! createWalletInteractor.createWallet(name: text)
+        let wallet = createWalletInteractor.createWallet(name: text)
         BIP39UserFlowPublishers.internalWalletPublisher.send(wallet)
     }
 }

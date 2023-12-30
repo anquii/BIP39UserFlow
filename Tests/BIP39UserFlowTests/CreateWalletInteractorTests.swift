@@ -12,36 +12,32 @@ final class CreateWalletInteractorTests: XCTestCase {
         .init(repository: repository, seedDerivator: seedDerivator)
     }
 
-    func testWhenCreateWallet_ThenNoErrorThrown() {
-        XCTAssertNoThrow(try sut().createWallet(name: ""))
-    }
-
-    func testGivenName_WhenCreateWallet_ThenWalletHasName() throws {
+    func testGivenName_WhenCreateWallet_ThenWalletHasName() {
         let name = "Spending"
-        let wallet = try sut().createWallet(name: name)
+        let wallet = sut().createWallet(name: name)
         XCTAssertEqual(wallet.name, name)
     }
 
-    func testGivenMnemonic_WhenCreateWallet_AndGetSeed_ThenMatchExpectedSeed() throws {
+    func testGivenMnemonic_WhenCreateWallet_AndGetSeed_ThenMatchExpectedSeed() {
         repository.setMnemonic(Self.mnemonic)
-        let wallet = try sut().createWallet(name: "")
-        let expectedSeed = try seedDerivator.seed(mnemonic: Self.mnemonic)
+        let wallet = sut().createWallet(name: "")
+        let expectedSeed = seedDerivator.seed(mnemonic: Self.mnemonic)
         XCTAssertEqual(wallet.seed, expectedSeed)
     }
 
-    func testGivenMnemonic_AndEmptyPassphrase_WhenCreateWallet_AndGetSeed_ThenMatchExpectedSeed() throws {
+    func testGivenMnemonic_AndEmptyPassphrase_WhenCreateWallet_AndGetSeed_ThenMatchExpectedSeed() {
         repository.setMnemonic(Self.mnemonic)
         repository.setMnemonicPassphrase("")
-        let wallet = try sut().createWallet(name: "")
-        let expectedSeed = try seedDerivator.seed(mnemonic: Self.mnemonic)
+        let wallet = sut().createWallet(name: "")
+        let expectedSeed = seedDerivator.seed(mnemonic: Self.mnemonic)
         XCTAssertEqual(wallet.seed, expectedSeed)
     }
 
-    func testGivenMnemonic_AndPassphrase_WhenCreateWallet_AndGetSeed_ThenMatchExpectedSeed() throws {
+    func testGivenMnemonic_AndPassphrase_WhenCreateWallet_AndGetSeed_ThenMatchExpectedSeed() {
         repository.setMnemonic(Self.mnemonic)
         repository.setMnemonicPassphrase(Self.mnemonicPassphrase)
-        let wallet = try sut().createWallet(name: "")
-        let expectedSeed = try seedDerivator.seed(mnemonic: Self.mnemonic, passphrase: Self.mnemonicPassphrase)
+        let wallet = sut().createWallet(name: "")
+        let expectedSeed = seedDerivator.seed(mnemonic: Self.mnemonic, passphrase: Self.mnemonicPassphrase)
         XCTAssertEqual(wallet.seed, expectedSeed)
     }
 }

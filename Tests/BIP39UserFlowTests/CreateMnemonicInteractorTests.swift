@@ -11,19 +11,15 @@ final class CreateMnemonicInteractorTests: XCTestCase {
         .init(repository: repository, entropyGenerator: entropyGenerator, constructor: mnemmonicConstructor)
     }
 
-    func testWhenCreateMnemonic_ThenNoErrorThrown() {
-        XCTAssertNoThrow(try sut().createMnemonic())
-    }
-
-    func testWhenCreateMnemonic_ThenStoredMnemonicNotEmpty() throws {
-        try sut().createMnemonic()
+    func testWhenCreateMnemonic_ThenStoredMnemonicNotEmpty() {
+        sut().createMnemonic()
         XCTAssertNotEqual(repository.mnemonic, "")
     }
 
-    func testGivenStoredEntropySecurity_WhenCreateMnemonic_AndCountWords_ThenMatchEntropySecurityEquivalent() throws {
-        try EntropySecurity.allCases.forEach {
+    func testGivenStoredEntropySecurity_WhenCreateMnemonic_AndCountWords_ThenMatchEntropySecurityEquivalent() {
+        EntropySecurity.allCases.forEach {
             repository.setMnemonicEntropySecurity($0)
-            try sut().createMnemonic()
+            sut().createMnemonic()
             XCTAssertEqual(repository.mnemonic.components(separatedBy: .whitespaces).count, Int(entropySecurity: $0))
         }
     }

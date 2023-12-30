@@ -5,17 +5,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/anquii/BIP39.git",
       "state" : {
-        "revision" : "49708d144984128c6bf4cce58ecb85b8de6fbca5",
-        "version" : "2.1.0"
-      }
-    },
-    {
-      "identity" : "cryptoswiftwrapper",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/anquii/CryptoSwiftWrapper.git",
-      "state" : {
-        "revision" : "0d57e806de368b5d2364fabb7c789b48661ec90c",
-        "version" : "1.4.3"
+        "revision" : "6eaf92d2b059bec565bcbca8ae830e1d19be22ab",
+        "version" : "3.0.0"
       }
     }
   ],
